@@ -13,8 +13,10 @@ dbConfig();
 // writing some APIS
 import registerRouter from "./src/router/registerRouter.js";
 import loginRouter from "./src/router/loginRouter.js";
+import logOutRouter from "./src/router/logOutRouter.js";
 app.use("/api/v1/register", registerRouter);
 app.use("/api/v1/login", loginRouter);
+app.use("/api/v1/logout", logOutRouter);
 
 // listeing the port
 const port = 8000;

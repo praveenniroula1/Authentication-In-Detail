@@ -1,5 +1,6 @@
 import express from "express";
 import { findExistingUser } from "../model/loginUserModel.js";
+import { createJWTs } from "../jwtHelper/jwtHelper.js";
 const router = express.Router();
 
 router.post("/", async (req, res) => {
@@ -20,9 +21,12 @@ router.post("/", async (req, res) => {
     }
     if (verifiedUser && verifiedUser.status === "active") {
       if (email === verifiedUser.email && password === verifiedUser.password) {
+        const jwt = await createJWTs({ email });
         return res.json({
           status: "success",
           message: "Logged In successfully",
+          verifiedUser,
+          ...jwt,
         });
       } else {
         return res.json({

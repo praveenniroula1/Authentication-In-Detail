@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "fName":"marjina",
     "lName":"vvx",
-    "email":"a@a.fsd",
+    "email":"a@a.com",
     "password":"123455"
 }
 
@@ -14,7 +14,14 @@ post http://localhost:8000/api/v1/login
 Content-Type: application/json
 
 {
-    "email":"a@a.fsd",
+    "email":"a@a.com",
     "password":"123455"
     
 }
+
+
+###working on logout endpoint
+get http://localhost:8000/api/v1/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDU1MDEwMzEsImV4cCI6MTcwNTUwNDYzMX0.Pa9FfO_Sbe67VRNDU8Nk88IQ-w6IIaUVBF3c0_SRXT
+
+

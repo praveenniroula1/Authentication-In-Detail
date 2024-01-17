@@ -23,6 +23,14 @@ const registerUserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    emailValidationCode: {
+      type: String,
+      default: "",
+    },
+    refreshJWT: {
+      type: String,
+      default: "",
+    },
   },
   { timestamps: true }
 );

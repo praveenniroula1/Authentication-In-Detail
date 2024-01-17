@@ -6,3 +6,7 @@ export const insertUser = (obj) => {
 export const updateUser = (filter, update) => {
   return registerUserSchema.findOneAndUpdate(filter, update, { new: true });
 };
+
+export const findOneUser = (email) => {
+  return registerUserSchema.findOne({ email });
+};
