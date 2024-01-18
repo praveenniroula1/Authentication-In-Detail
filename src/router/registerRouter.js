@@ -10,9 +10,9 @@ const router = express.Router();
 
 router.post("/", userValidation, async (req, res) => {
   try {
-    req.body.emailValidationCode = Math.random(Math.floor());
+    req.body.validationCode = Math.random(Math.floor());
     const user = await insertUser(req.body);
-    const url = `http://localhost:8000/api/v1/register/verify-email?e=${user.email}&c=${user.emailValidationCode}`;
+    const url = `http://localhost:8000/api/v1/register/verify-email?e=${user.email}&c=${user.validationCode}`;
     sendEmail({ user, url });
     user?._id
       ? res.json({
@@ -43,11 +43,7 @@ router.get("/verify-email", async (req, res) => {
     const email = req.query.e;
     const code = req.query.c;
     const checkingUser = await findOneUser(email);
-
-    if (
-      email !== checkingUser.email ||
-      code !== checkingUser.emailValidationCode
-    ) {
+    if (email !== checkingUser.email || code !== checkingUser.validationCode) {
       return res.json({
         status: "error",
         message:

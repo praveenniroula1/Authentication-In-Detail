@@ -10,10 +10,6 @@ const sessionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    expires: {
-      type: String,
-      default: null,
-    },
   },
   { timestamps: true }
 );

@@ -23,7 +23,7 @@ const registerUserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    emailValidationCode: {
+    validationCode: {
       type: String,
       default: "",
     },

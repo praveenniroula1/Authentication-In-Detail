@@ -5,8 +5,8 @@ Content-Type: application/json
 {
     "fName":"marjina",
     "lName":"vvx",
-    "email":"a@a.com",
-    "password":"123455"
+    "email":"apple@apple.com",
+    "password":"123456"
 }
 
 ###testing apis
@@ -14,9 +14,8 @@ post http://localhost:8000/api/v1/login
 Content-Type: application/json
 
 {
-    "email":"a@a.com",
-    "password":"123455"
-    
+    "email":"apple@apple.com",
+    "password":"123456"
 }
 
 
@@ -24,4 +23,21 @@ Content-Type: application/json
 get http://localhost:8000/api/v1/logout
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDU1MDEwMzEsImV4cCI6MTcwNTUwNDYzMX0.Pa9FfO_Sbe67VRNDU8Nk88IQ-w6IIaUVBF3c0_SRXT
 
+###password change
+post http://localhost:8000/api/v1/change-password
+Content-Type: application/json
 
+{
+    "email":"apple@apple.com",
+    "password":"123456",
+    "newPassword":"praveen1"
+}
+
+###password forgot
+post http://localhost:8000/api/v1/forgot-password
+Content-Type: application/json
+
+{
+    "email":"apple@apple.com",
+    "newPassword":"123456"
+}
