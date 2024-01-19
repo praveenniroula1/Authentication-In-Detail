@@ -15,13 +15,12 @@ Content-Type: application/json
 
 {
     "email":"apple@apple.com",
-    "password":"123456"
+    "password":"praveen1"
 }
 
 
 ###working on logout endpoint
-get http://localhost:8000/api/v1/logout
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDU1MDEwMzEsImV4cCI6MTcwNTUwNDYzMX0.Pa9FfO_Sbe67VRNDU8Nk88IQ-w6IIaUVBF3c0_SRXT
+post http://localhost:8000/api/v1/logout
 
 ###password change
 post http://localhost:8000/api/v1/change-password
@@ -40,4 +39,15 @@ Content-Type: application/json
 {
     "email":"apple@apple.com",
     "newPassword":"123456"
+}
+
+###product api check
+post http://localhost:8000/api/v1/product
+Content-Type: application/json
+
+{
+    "name":"Mobile",
+    "category":"Elec",
+    "description":"very good mobile",
+    "price":"$100"
 }

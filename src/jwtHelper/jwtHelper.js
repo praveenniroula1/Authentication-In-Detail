@@ -2,20 +2,22 @@ import Jwt from "jsonwebtoken";
 import { insertSession } from "../session/sessionModel.js";
 import { updateUser } from "../model/registerUserModel.js";
 
+const ACCESS_SECRET_JWT = "ghffHFHGHg";
+const REFRESH_SECRET_JWT = "HVHJuyfyufyufYFYFyf";
+
 export const generateAccessToken = async (payload) => {
-  const ACCESS_SECRET_JWT = "ghffHFHGHg";
   const accessToken = Jwt.sign(payload, ACCESS_SECRET_JWT, { expiresIn: "1h" });
 
   const obj = {
     token: accessToken,
     type: "jwt",
+    email: payload,
   };
   await insertSession(obj);
   return accessToken;
 };
 
 export const generateRefreshToken = async (payload) => {
-  const REFRESH_SECRET_JWT = "HVHJuyfyufyufYFYFyf";
   const refreshToken = Jwt.sign(payload, REFRESH_SECRET_JWT, {
     expiresIn: "30d",
   });
@@ -33,3 +35,21 @@ export const jwts = async (payload) => {
     refreshToken: await generateRefreshToken(payload),
   };
 };
+
+// export const verifyAccessToken = (token) => {
+//   try {
+//     const decoded = Jwt.verify(token, ACCESS_SECRET_JWT);
+//     return decoded;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// export const verifyRefreshToken = (token) => {
+//   try {
+//     const decoded = Jwt.verify(token, REFRESH_SECRET_JWT);
+//     return decoded;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
