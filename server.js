@@ -18,6 +18,8 @@ import forgotPasswordRouter from "./src/router/forgotPasswordRouter.js";
 import logoutRouter from "./src/router/logoutRouter.js";
 import productRouter from "./src/router/productRouter.js";
 import updateProductRouter from "./src/router/updateProductRouter.js";
+import getAllProductRouter from "./src/router/getAllProductRouter.js";
+import deleteProductRouter from "./src/router/deleteProductRouter.js";
 app.use("/api/v1/register", registerRouter);
 app.use("/api/v1/login", loginRouter);
 app.use("/api/v1/change-password", changePasswordRouter);
@@ -25,6 +27,8 @@ app.use("/api/v1/forgot-password", forgotPasswordRouter);
 app.use("/api/v1/logout", logoutRouter);
 app.use("/api/v1/product", productRouter);
 app.use("/api/v1/product/update-product", updateProductRouter);
+app.use("/api/v1/product/get-all-product", getAllProductRouter);
+app.use("/api/v1/product/delete-product", deleteProductRouter);
 // create,read,delete,update Product
 
 // listeing the port
