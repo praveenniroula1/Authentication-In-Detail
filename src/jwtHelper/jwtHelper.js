@@ -7,11 +7,10 @@ const REFRESH_SECRET_JWT = "HVHJuyfyufyufYFYFyf";
 
 export const generateAccessToken = async (payload) => {
   const accessToken = Jwt.sign(payload, ACCESS_SECRET_JWT, { expiresIn: "1h" });
-
   const obj = {
     token: accessToken,
     type: "jwt",
-    email: payload,
+    email: payload.email,
   };
   await insertSession(obj);
   return accessToken;
@@ -36,14 +35,14 @@ export const jwts = async (payload) => {
   };
 };
 
-// export const verifyAccessToken = (token) => {
-//   try {
-//     const decoded = Jwt.verify(token, ACCESS_SECRET_JWT);
-//     return decoded;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const verifyAccessToken = (token) => {
+  try {
+    const decoded = Jwt.verify(token, ACCESS_SECRET_JWT);
+    return decoded;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // export const verifyRefreshToken = (token) => {
 //   try {

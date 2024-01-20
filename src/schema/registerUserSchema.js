@@ -27,10 +27,6 @@ const registerUserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    refreshJWT: {
-      type: String,
-      default: "",
-    },
   },
   { timestamps: true }
 );

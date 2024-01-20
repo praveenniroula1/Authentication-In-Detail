@@ -8,5 +8,5 @@ export const updateUser = (filter, update) => {
 };
 
 export const findOneUser = (email) => {
-  return registerUserSchema.findOne({ email });
+  return registerUserSchema.findOne(email);
 };

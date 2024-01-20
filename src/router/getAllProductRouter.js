@@ -5,7 +5,6 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const allProduct = await findAllProduct();
-    console.log(allProduct);
     if (allProduct) {
       return res.json({
         status: "success",

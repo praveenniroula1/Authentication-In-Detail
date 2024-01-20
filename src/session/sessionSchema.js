@@ -8,7 +8,7 @@ const sessionSchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      required: true,
+      default: "",
     },
     email: {
       type: String,

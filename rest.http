@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "fName":"marjina",
     "lName":"vvx",
-    "email":"apple@apple.com",
+    "email":"praveen@gmail1.com",
     "password":"123456"
 }
 
@@ -14,13 +14,14 @@ post http://localhost:8000/api/v1/login
 Content-Type: application/json
 
 {
-    "email":"apple@apple.com",
-    "password":"praveen1"
+    "email":"praveen@gmail1.com",
+    "password":"123456"
 }
 
 
 ###working on logout endpoint
 post http://localhost:8000/api/v1/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByYXZlZW5AZ21haWwxLmNvbSIsImlhdCI6MTcwNTcyMTcwMiwiZXhwIjoxNzA1NzI1MzAyfQ.IROXPMZ0x5N8H1LX_56rCC-Kh-A9JBGFxkoN9WSVrYg
 
 ###password change
 post http://localhost:8000/api/v1/change-password
@@ -47,9 +48,9 @@ Content-Type: application/json
 
 {
     "name":"Mobile",
-    "category":"Elec",
-    "description":"very good mobile",
-    "price":"$100"
+    "category":"TelePhone",
+    "description":"this very good mobile",
+    "price":"$100",
 }
 
 ###product api check
@@ -57,7 +58,7 @@ PATCH  http://localhost:8000/api/v1/product/update-product
 Content-Type: application/json
 
 {
-    "_id": "65aa68ccbdc14533df0951c4",
+    "_id": "65aa6f22dbfd00c92a42872a",
     "name": "Samsung Galaxy S5",
     "category": "Samsung Phone",
     "description": "very good mobile",
@@ -75,5 +76,5 @@ DELETE  http://localhost:8000/api/v1/product/delete-product
 Content-Type: application/json
 
 {
-   "_id":"65a9bee958f3de7bacf34751"
+   "_id":"65a9c018f544a2c809da4a15"
 }

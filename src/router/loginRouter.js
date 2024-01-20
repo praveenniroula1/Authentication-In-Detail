@@ -7,7 +7,9 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const { email, password } = req.body;
+
     const verifiedUser = await findExistingUser(email);
+
     if (!verifiedUser) {
       return res.json({
         status: "error",

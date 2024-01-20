@@ -6,9 +6,7 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const { email, password, newPassword } = req.body;
-    console.log(req.body);
     const user = await findUser(email);
-    console.log(user);
     if (!user) {
       return res.json({
         status: "error",
