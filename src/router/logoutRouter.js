@@ -5,16 +5,17 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const { authorization } = req.headers;
+    console.log(authorization);
     if (authorization) {
-      await deleteSession(authorization);
+      const dataToDelete = await deleteSession(authorization);
       return res.json({
         status: "success",
         message: "successfully deleated the session",
       });
     }
     return res.json({
-      status: "success",
-      message: "Yet to do",
+      status: "error",
+      message: "Could not delete the session",
     });
   } catch (error) {
     console.log(error);

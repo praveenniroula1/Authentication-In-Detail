@@ -7,6 +7,6 @@ export const getSession = (email) => {
   return sessionSchema.findOne(email);
 };
 
-export const deleteSession = (authorization) => {
-  return sessionSchema.deleteOne({ authorization });
+export const deleteSession = (token) => {
+  return sessionSchema.deleteOne({ token });
 };
