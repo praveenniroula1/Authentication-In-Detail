@@ -20,6 +20,7 @@ import productRouter from "./src/router/productRouter.js";
 import updateProductRouter from "./src/router/updateProductRouter.js";
 import getAllProductRouter from "./src/router/getAllProductRouter.js";
 import deleteProductRouter from "./src/router/deleteProductRouter.js";
+import categoryRouter from "./src/router/categoryRouter.js";
 import { isAuth } from "./src/auth/authVerification.js";
 app.use("/api/v1/register", registerRouter);
 app.use("/api/v1/login", loginRouter);
@@ -30,7 +31,7 @@ app.use("/api/v1/product", isAuth, productRouter);
 app.use("/api/v1/product/update-product", isAuth, updateProductRouter);
 app.use("/api/v1/product/get-all-product", isAuth, getAllProductRouter);
 app.use("/api/v1/product/delete-product", isAuth, deleteProductRouter);
-// create,read,delete,update Product
+app.use("/api/v1/category", categoryRouter);
 
 // listeing the port
 const port = 8000;
