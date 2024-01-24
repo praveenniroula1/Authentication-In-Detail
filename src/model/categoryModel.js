@@ -7,3 +7,7 @@ export const insertCategory = (obj) => {
 export const updateCategory = (filter, update) => {
   return categorySchema.findOneAndUpdate(filter, update, { new: true });
 };
+
+export const getAllCategory = () => {
+  return categorySchema.find();
+};

@@ -2,13 +2,14 @@ import express from "express";
 import { updateCategory } from "../model/categoryModel.js";
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.patch("/", async (req, res) => {
   try {
-    const { _id, name } = req.body;
+    const { _id, name, children } = req.body;
     const updatedCategory = await updateCategory(
       { _id },
       {
         name: name,
+        children: children,
       }
     );
     if (updatedCategory?._id) {

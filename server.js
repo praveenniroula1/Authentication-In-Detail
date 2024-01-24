@@ -22,6 +22,7 @@ import getAllProductRouter from "./src/router/getAllProductRouter.js";
 import deleteProductRouter from "./src/router/deleteProductRouter.js";
 import categoryRouter from "./src/router/categoryRouter.js";
 import updateCategoryRouter from "./src/router/updateCategoryRouter.js";
+import getAllCategoryRouter from "./src/router/getAllCategoryRouter.js";
 import { isAuth } from "./src/auth/authVerification.js";
 app.use("/api/v1/register", registerRouter);
 app.use("/api/v1/login", loginRouter);
@@ -34,6 +35,7 @@ app.use("/api/v1/product/get-all-product", isAuth, getAllProductRouter);
 app.use("/api/v1/product/delete-product", isAuth, deleteProductRouter);
 app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/update-category", updateCategoryRouter);
+app.use("/api/v1/get-all-category", getAllCategoryRouter);
 
 // listeing the port
 const port = 8000;

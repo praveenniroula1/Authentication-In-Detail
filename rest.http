@@ -85,6 +85,22 @@ post http://localhost:8000/api/v1/category
 Content-Type: application/json
 
 {
-    "name":"Electrocis",
-    "children":"Hey"
+    "name":"Home Kitchen",
+    "children":"Freeze"
+}
+
+###product api check
+get http://localhost:8000/api/v1/get-all-category
+
+
+
+###product api check
+PATCH  http://localhost:8000/api/v1/update-category
+Content-Type: application/json
+
+{
+    "_id": "65b06910aeba818d4b187a5d",
+    "name": "home kitchen has been changed to Electronics",
+    "children": "Oven"
+ 
 }
