@@ -104,3 +104,13 @@ Content-Type: application/json
     "children": "Oven"
  
 }
+
+###Delete api check
+DELETE http://localhost:8000/api/v1/delete-category
+Content-Type: application/json
+
+{
+    "_id": "65b06910aeba818d4b187a5d"
+   
+ 
+}
