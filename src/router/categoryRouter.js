@@ -5,12 +5,12 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     console.log(req.body);
-    const category = await insertCategory(req.body);
-    if (category?._id) {
+    const addCategory = await insertCategory(req.body);
+    if (addCategory?._id) {
       return res.json({
         status: "success",
         message: "Your category has been created",
-        category,
+        addCategory,
       });
     } else {
       return res.json({
