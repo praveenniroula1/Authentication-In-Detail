@@ -25,6 +25,7 @@ import updateCategoryRouter from "./src/router/updateCategoryRouter.js";
 import getAllCategoryRouter from "./src/router/getAllCategoryRouter.js";
 import deleteCategoryRouter from "./src/router/deleteCategoryRouter.js";
 import { isAuth } from "./src/auth/authVerification.js";
+
 app.use("/api/v1/register", registerRouter);
 app.use("/api/v1/login", loginRouter);
 app.use("/api/v1/change-password", isAuth, changePasswordRouter);
