@@ -1,22 +1,17 @@
-import { sendEmail } from "../mailHelper/mailHelper.js";
-import {
-  findOneUser,
-  insertUser,
-  updateUser,
-} from "../model/registerUserModel.js";
+import { UserRegisterRepository } from "../repository/userRegisterRepository.js";
+import registerUserSchema from "../schema/registerUserSchema.js";
+import { userService } from "../services/userService.js";
 
 export const postRegisterController = async (req, res) => {
   try {
     req.body.validationCode = Math.random(Math.floor());
-    const user = await insertUser(req.body);
-    const url = `http://localhost:8000/api/v1/register/verify-email?e=${user.email}&c=${user.validationCode}`;
-    sendEmail({ user, url });
-    user?._id
+    const { insertedUser, url } = await userService.registerUser(req.body);
+    insertedUser
       ? res.json({
           status: "success",
           message: "The user is registered successfully",
           url,
-          user,
+          insertedUser,
         })
       : res.json({
           status: "error",
@@ -39,7 +34,7 @@ export const verifyEmailController = async (req, res) => {
   try {
     const email = req.query.e;
     const code = req.query.c;
-    const checkingUser = await findOneUser(email);
+    const checkingUser = await UserRegisterRepository.findOneUser({ email });
     if (email !== checkingUser.email || code !== checkingUser.validationCode) {
       return res.json({
         status: "error",
@@ -47,7 +42,7 @@ export const verifyEmailController = async (req, res) => {
           "Your email and validation has been tampered or expired, cannot verify",
       });
     }
-    const verifyUser = await updateUser(
+    const verifyUser = await UserRegisterRepository.updateUser(
       { email },
       {
         status: "active",

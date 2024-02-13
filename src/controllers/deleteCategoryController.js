@@ -1,9 +1,9 @@
-import { deleteCategoryById } from "../model/categoryModel.js";
+import { categoryService } from "../services/categoryService.js";
 
 export const deleteCategoryController = async (req, res) => {
   try {
     const { _id } = req.body;
-    const deleteCategory = await deleteCategoryById(_id);
+    const deleteCategory = await categoryService.deleteCategory(_id);
     if (deleteCategory) {
       return res.json({
         status: "success",

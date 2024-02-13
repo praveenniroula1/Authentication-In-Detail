@@ -1,5 +1,5 @@
 import { verifyAccessToken } from "../jwtHelper/jwtHelper.js";
-import { findOneUser } from "../model/registerUserModel.js";
+import { UserRegisterRepository } from "../repository/userRegisterRepository.js";
 import { getSession } from "../session/sessionModel.js";
 
 export const isAuth = async (req, res, next) => {
@@ -27,7 +27,10 @@ export const isAuth = async (req, res, next) => {
         });
 
         if (existInDb?._id) {
-          const adminInfo = await findOneUser({ email: decoded.email });
+          const adminInfo = await UserRegisterRepository.findOneUser({
+            email: decoded.email,
+          });
+          console.log(adminInfo);
           if (adminInfo?._id) {
             req.adminInfo = adminInfo;
             return next();

@@ -1,8 +1,8 @@
-import { getAllCategory } from "../model/categoryModel.js";
+import { categoryService } from "../services/categoryService.js";
 
 export const getAllCategoryController = async (req, res) => {
   try {
-    const allCategory = await getAllCategory();
+    const allCategory = await categoryService.getAllCategory();
     console.log(allCategory);
     if (allCategory) {
       return res.json({

@@ -29,16 +29,16 @@ import { isAuth } from "./src/auth/authVerification.js";
 app.use("/api/v1/register", registerRouter);
 app.use("/api/v1/login", loginRouter);
 app.use("/api/v1/change-password", isAuth, changePasswordRouter);
-app.use("/api/v1/forgot-password", forgotPasswordRouter);
+app.use("/api/v1/forgot-password", isAuth, forgotPasswordRouter);
 app.use("/api/v1/logout", isAuth, logoutRouter);
 app.use("/api/v1/product", isAuth, productRouter);
 app.use("/api/v1/product/update-product", isAuth, updateProductRouter);
 app.use("/api/v1/product/get-all-product", isAuth, getAllProductRouter);
 app.use("/api/v1/product/delete-product", isAuth, deleteProductRouter);
-app.use("/api/v1/category", categoryRouter);
-app.use("/api/v1/update-category", updateCategoryRouter);
-app.use("/api/v1/get-all-category", getAllCategoryRouter);
-app.use("/api/v1/delete-category", deleteCategoryRouter);
+app.use("/api/v1/category", isAuth, categoryRouter);
+app.use("/api/v1/update-category", isAuth, updateCategoryRouter);
+app.use("/api/v1/get-all-category", isAuth, getAllCategoryRouter);
+app.use("/api/v1/delete-category", isAuth, deleteCategoryRouter);
 
 // listeing the port
 const port = 8000;

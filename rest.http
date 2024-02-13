@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "fName":"marjina",
     "lName":"vvx",
-    "email":"praveen.com",
+    "email":"aaazzxchadsfsdccxxxfiasda@chaiss.com",
     "password":"123456"
 }
 
@@ -14,7 +14,7 @@ post http://localhost:8000/api/v1/login
 Content-Type: application/json
 
 {
-    "email":"praveen@gmail1.com",
+    "email":"aaazzxchadsfsdccxxxfiasda@chaiss.com",
     "password":"123456"
 }
 
@@ -50,7 +50,7 @@ Content-Type: application/json
     "name":"Mobile",
     "category":"TelePhone",
     "description":"this very good mobile",
-    "price":"$100",
+    "price":"$100"
 }
 
 ###product api check
@@ -69,6 +69,7 @@ Content-Type: application/json
 
 ###getAll products
 get http://localhost:8000/api/v1/product/get-all-product
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYXp6eGNoYWRzZnNkY2N4eHhmaWFzZGFAY2hhaXNzLmNvbSIsImlhdCI6MTcwNzgwOTU3NSwiZXhwIjoxNzA3ODEzMTc1fQ.PXmEXdBvDZHI2C-sLbyKi2VLwj-SI2DTwEroJhrCDo0
 
 
 ###Delete products
@@ -83,6 +84,7 @@ Content-Type: application/json
 ###product api check
 post http://localhost:8000/api/v1/category
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYXp6eGNoYWRzZnNkY2N4eHhmaWFzZGFAY2hhaXNzLmNvbSIsImlhdCI6MTcwNzgwOTU3NSwiZXhwIjoxNzA3ODEzMTc1fQ.PXmEXdBvDZHI2C-sLbyKi2VLwj-SI2DTwEroJhrCDo0
 
 {
     "name":"Home Kitchen",
@@ -91,26 +93,29 @@ Content-Type: application/json
 
 ###product api check
 get http://localhost:8000/api/v1/get-all-category
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYXp6eGNoYWRzZnNkY2N4eHhmaWFzZGFAY2hhaXNzLmNvbSIsImlhdCI6MTcwNzgwOTU3NSwiZXhwIjoxNzA3ODEzMTc1fQ.PXmEXdBvDZHI2C-sLbyKi2VLwj-SI2DTwEroJhrCDo0
 
 
 
 ###product api check
 PATCH  http://localhost:8000/api/v1/update-category
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYXp6eGNoYWRzZnNkY2N4eHhmaWFzZGFAY2hhaXNzLmNvbSIsImlhdCI6MTcwNzgwOTU3NSwiZXhwIjoxNzA3ODEzMTc1fQ.PXmEXdBvDZHI2C-sLbyKi2VLwj-SI2DTwEroJhrCDo0
 
 {
-    "_id": "65b06910aeba818d4b187a5d",
-    "name": "home kitchen has been changed to Electronics",
-    "children": "Oven"
+    "_id": "65c9cce75abf3f6ed295e096",
+    "name": "kera jasto",
+    "children": "aluuuu"
  
 }
 
 ###Delete api check
 DELETE http://localhost:8000/api/v1/delete-category
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFhYXp6eGNoYWRzZnNkY2N4eHhmaWFzZGFAY2hhaXNzLmNvbSIsImlhdCI6MTcwNzgwOTU3NSwiZXhwIjoxNzA3ODEzMTc1fQ.PXmEXdBvDZHI2C-sLbyKi2VLwj-SI2DTwEroJhrCDo0
 
 {
-    "_id": "65b06910aeba818d4b187a5d"
+    "_id": "65c9cce75abf3f6ed295e096"
    
  
 }

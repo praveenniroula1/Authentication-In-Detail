@@ -1,9 +1,9 @@
-import { insertCategory } from "../model/categoryModel.js";
+import { categoryService } from "../services/categoryService.js";
 
 export const createCategoryController = async (req, res) => {
   try {
     console.log(req.body);
-    const addCategory = await insertCategory(req.body);
+    const addCategory = await categoryService.insertCategory(req.body);
     if (addCategory?._id) {
       return res.json({
         status: "success",

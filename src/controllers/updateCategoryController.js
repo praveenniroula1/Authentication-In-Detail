@@ -1,9 +1,9 @@
-import { updateCategory } from "../model/categoryModel.js";
+import { categoryService } from "../services/categoryService.js";
 
 export const updateCategoryController = async (req, res) => {
   try {
     const { _id, name, children } = req.body;
-    const updatedCategory = await updateCategory(
+    const updatedCategory = await categoryService.updateCategory(
       { _id },
       {
         name: name,

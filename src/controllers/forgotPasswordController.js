@@ -1,12 +1,15 @@
 import { findExistingUser } from "../model/loginUserModel.js";
-import { updateUser } from "../model/registerUserModel.js";
+import { UserRegisterRepository } from "../repository/userRegisterRepository.js";
 import { sendForgotPasswordEmail } from "../mailHelper/passwordMail.js";
 
 export const forgotPasswordController = async (req, res) => {
   try {
     req.body.validationCode = Math.random();
     const { email, validationCode, newPassword } = req.body;
-    const userUpdated = await updateUser({ email }, { validationCode });
+    const userUpdated = await UserRegisterRepository.updateUser(
+      { email },
+      { validationCode }
+    );
 
     const user = await findExistingUser(email);
 
@@ -42,7 +45,7 @@ export const updatedPasswordController = async (req, res) => {
       });
     }
     if (email === user.email && validationCode === user.validationCode) {
-      const updatePassword = await updateUser(
+      const updatePassword = await UserRegisterRepository.updateUser(
         { email },
         { password: newPassword }
       );

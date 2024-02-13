@@ -1,6 +1,6 @@
 import Jwt from "jsonwebtoken";
 import { insertSession } from "../session/sessionModel.js";
-import { updateUser } from "../model/registerUserModel.js";
+import { UserRegisterRepository } from "../repository/userRegisterRepository.js";
 
 const ACCESS_SECRET_JWT = "ghffHFHGHg";
 const REFRESH_SECRET_JWT = "HVHJuyfyufyufYFYFyf";
@@ -24,7 +24,7 @@ export const generateRefreshToken = async (payload) => {
     token: refreshToken,
     type: "jwt",
   };
-  await updateUser({ obj });
+  await UserRegisterRepository.updateUser({ obj });
   return refreshToken;
 };
 
